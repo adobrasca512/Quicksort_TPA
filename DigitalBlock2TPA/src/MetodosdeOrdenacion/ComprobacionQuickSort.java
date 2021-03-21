@@ -4,16 +4,17 @@ import java.util.Arrays;
 
 public class ComprobacionQuickSort {
 	public static int pivot(int lista[], int inicio, int fin) {
-		int i = inicio;
-		int j = fin;
-		int valor = lista[inicio];
+		int i = inicio-1;
+		int j = fin-1;
+		int valor = lista[inicio-1];
 		// Vamos a vaciar la posicion del pivote
-		lista[inicio] = 0;
+		lista[inicio-1] = 0;
 		System.out.println("Lista inicial: " + Arrays.toString(lista));
 		while (i != j) {
-			System.out.println("Es :" + lista[j] + " mayor que: " + valor + " ?");
+			//System.out.println("Es :" + lista[j] + " mayor que: " + valor + " ?");
 
 			if (lista[j] != 0) {
+				System.out.println("Es :" + lista[j] + " mayor que: " + valor + " ?");
 				if (lista[j] > valor) {
 					System.out.println("cambiando posicion al lado izquierdo " + (i) + " por " + j);
 					// Cambiando al lado izquierdo
@@ -30,7 +31,7 @@ public class ComprobacionQuickSort {
 			if (j != i) {
 				if (lista[i] != 0) {
 					System.out.println("Es :" + lista[i] + " menor que: " + valor + " ?");
-					if (lista[i] < valor) {
+					if (lista[i] <= valor) {
 						System.out.println("cambiando posicion al lado derecho " + (i) + " por " + j);
 						// Cambiando al lado derecho
 						intercambiar(lista, i, j);
@@ -67,11 +68,11 @@ public class ComprobacionQuickSort {
 			int x = pivot(lista, inicio, fin);
 
 			System.out.println(
-					"\n\n QUICKSORT RECURSIVO: Evaluo lista desde la posicion " + (inicio) + " hasta " + (x - 1));
-			quickSort(lista, inicio, x - 1);
+					"\n\n QUICKSORT RECURSIVO: Evaluo lista desde la posicion " + (inicio) + " hasta " + (x ));
+		quickSort(lista, inicio, x );
 			System.out.println(
-					"\n\n QUICKSORT RECURSIVO 2: Evaluo lista desde la posicion " + (x + 1) + " hasta " + (fin));
-			quickSort(lista, x + 1, fin);
+					"\n\n QUICKSORT RECURSIVO 2: Evaluo lista desde la posicion " + (x + 2) + " hasta " + (fin));
+		quickSort(lista, x + 2, fin);
 			
 		} 
 	}
@@ -88,7 +89,7 @@ public class ComprobacionQuickSort {
 
 		int list[] = { 5, 3, 5, 7, 6, 2, 9, 8, 1 };
 
-		quickSort(list, 0, 8);
+		quickSort(list, 1, 9);
 
 	}
 
